@@ -52,6 +52,12 @@ GET /v2/reply/22-kbzw9ru
     "data": "e8501e64cf0a9fa45e3c25aa9e77ffd5"
 }
 ```
+```
+GET /v2/reply/21-kbzw9ru
+{
+    "data": "daf168567f92b1c464459087eaaefaf0"
+}
+```
 
 ## What you need to do
 Use the boilerplate given and implement the above requirement.
@@ -68,6 +74,26 @@ For invalid request, it should return status code `400`
 with message `"Invalid input"`, for example:
    ```
    GET /v2/reply/13-kbzw9ru
+   {
+       "message": "Invalid input"
+   }
+   ```
+
+    ```
+   GET /v2/reply/1-kbzw9ru
+   {
+       "message": "Invalid input. Rules contain two numbers {1 or 2}"
+   }
+   ```
+
+  ```
+   GET /v2/reply/111-kbzw9ru
+   {
+       "message": "Invalid input. Rules contain two numbers {1 or 2}"
+   }
+   ```
+  ```
+   GET /v2/reply/113-kbzw9ru
    {
        "message": "Invalid input"
    }
@@ -93,12 +119,13 @@ To start the project, simply run
 ./gradlew bootRun
 ```
 
-Once the service started, the endpoint will be available at `localhost:8080`, so you can make request to the service endpoint
+Once the service started, the endpoint will be available at `localhost:8081`, so you can make request to the service endpoint
 
 ```json
-GET localhost:8080/reply/helloworld
+GET localhost:8081/reply/helloworld
 
 {
     message: "helloword"
 }
 ```
+
